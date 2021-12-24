@@ -21,7 +21,8 @@ public class TestGmail {
 
 		 
 		 public  void Send() throws IOException {
-		  String to = "huntervsskull123@gmail.com"; // to address. It can be any like gmail, hotmail etc.
+			 
+		  String to = "tamang.subash36@gmail.com"; // to address. It can be any like gmail, hotmail etc.
 		  final String from = "tamang.subash36@gmail.com"; // from address. As this is using Gmail SMTP.
 		  final String password = "abcde12345abcde"; // password for from mail address. 
 		 

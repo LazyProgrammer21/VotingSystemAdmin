@@ -2,6 +2,8 @@ package com.votingsystem.service;
 
 import java.util.List;
 
+import javax.swing.JComboBox;
+
 import com.votingsystem.model.AboutUs;
 import com.votingsystem.model.ContactDetail;
 import com.votingsystem.model.Election_position;
@@ -21,6 +23,9 @@ public interface adminService {
 	 List<Region_State> getRegionState();
 	 List<PartyInfo> getParty();
 	
+	 boolean getPositiononly(JComboBox<String> box);
+	 boolean getpartyName(JComboBox<String> bx1);
+	 boolean getState(JComboBox<String> bx2);
 	
 	
 	
