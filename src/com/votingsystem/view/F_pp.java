@@ -111,6 +111,10 @@ public class F_pp extends JFrame {
 				obj1.setLocationRelativeTo(null);
 				
 			}
+			else {
+				JOptionPane.showMessageDialog(null, "Please enter a valid Key");
+				adminKey.setText("");
+			}
 			
 				
 			}
