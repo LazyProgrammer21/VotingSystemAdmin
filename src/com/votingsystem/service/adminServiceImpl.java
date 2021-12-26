@@ -5,10 +5,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
 import com.votingsystem.db.db;
@@ -312,6 +312,59 @@ public class adminServiceImpl implements adminService {
 	
 		}
 		return p_info;
+	}
+
+
+	@Override
+	public boolean getPositiononly(JComboBox<String> box) {
+		String sql = "Select Position from votingsystem.electionposition";
+		try {
+			PreparedStatement pst = con.prepareStatement(sql);
+			ResultSet rs = pst.executeQuery();
+			while (rs.next()) {
+				box.addItem(rs.getString("Position"));
+			}
+			
+		}catch(SQLException e){
+			JOptionPane.showMessageDialog(null, e);
+		}
+		return false;
+	}
+
+
+	@Override
+	public boolean getpartyName(JComboBox<String> bx1) {
+		
+		String sql = "Select party_name from votingsystem.party";
+		try {
+			PreparedStatement pst = con.prepareStatement(sql);
+			ResultSet rs = pst.executeQuery();
+			while (rs.next()) {
+				bx1.addItem(rs.getString("party_name"));
+			}
+			
+		}catch(SQLException e){
+			JOptionPane.showMessageDialog(null, e);
+		}
+		return false;
+	}
+
+
+	@Override
+	public boolean getState(JComboBox<String> bx2) {
+
+		String sql = "Select Region from votingsystem.region_state";
+		try {
+			PreparedStatement pst = con.prepareStatement(sql);
+			ResultSet rs = pst.executeQuery();
+			while (rs.next()) {
+				bx2.addItem(rs.getString("Region"));
+			}
+			
+		}catch(SQLException e){
+			JOptionPane.showMessageDialog(null, e);
+		}
+		return false;
 	}
 
 }

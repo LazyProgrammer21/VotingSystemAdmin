@@ -1,15 +1,18 @@
 package com.votingsystem.view;
 
-import java.awt.BorderLayout;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import com.votingsystem.service.adminService;
+import com.votingsystem.service.adminServiceImpl;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
-import javax.swing.JToggleButton;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 import java.awt.Color;
@@ -18,9 +21,13 @@ import java.awt.event.ActionEvent;
 
 public class addCandidate extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField candidate_name;
-
+	adminService as = new adminServiceImpl();
 	/**
 	 * Launch the application.
 	 */
@@ -77,15 +84,19 @@ public class addCandidate extends JFrame {
 		contentPane.add(candidate_name);
 		candidate_name.setColumns(10);
 		
-		JComboBox position = new JComboBox();
+		JComboBox<String> position = new JComboBox<String>();
+		as.getPositiononly(position);
 		position.setBounds(233, 140, 182, 30);
 		contentPane.add(position);
 		
-		JComboBox state = new JComboBox();
+		JComboBox<String> state = new JComboBox<String>();
+		as.getState(state);
 		state.setBounds(233, 182, 182, 30);
+		
 		contentPane.add(state);
 		
-		JComboBox Party = new JComboBox();
+		JComboBox<String> Party = new JComboBox<String>();
+		as.getpartyName(Party);
 		Party.setBounds(233, 234, 182, 30);
 		contentPane.add(Party);
 		
